@@ -86,6 +86,17 @@ xcrun devicectl device install app --device '<device-id>' '/absolute/path/App.ap
 xcrun devicectl device process launch --device '<device-id>' 'com.example.app'
 ```
 
+## Use with ChatGPT Remote or Codex
+
+Once the bridge is working, ChatGPT Remote can steer the Mac without opening
+Xcode on the phone or remotely controlling the Mac's desktop. Give ChatGPT the
+project and use the reusable prompt in [CHATGPT-PROMPT.md](CHATGPT-PROMPT.md).
+
+The prompt tells the agent to use the physical paired iPhone, run the project's
+real build command, install the signed app, launch it, and report build,
+installation, and launch separately. It also tells the agent not to print or
+modify the private bridge configuration.
+
 ## Troubleshooting
 
 - If the Mac's `en0` address changes, run `./bridge.sh --prepare-hosts` and
