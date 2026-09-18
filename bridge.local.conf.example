@@ -1,0 +1,22 @@
+# Copy this file to bridge.local.conf and fill in values captured from YOUR
+# paired iPhone. bridge.local.conf is gitignored because it contains pairing
+# material, including authTag.
+
+IPHONE_TAILNET_IP='100.x.y.z'
+IPHONE_HOSTNAME='Your-iPhone.local'
+INSTANCE_UUID='REPLACE_ME'
+IDENTIFIER='REPLACE_ME'
+AUTH_TAG='REPLACE_ME'
+VER='24'
+MIN_VER='8'
+FLAGS='0'
+
+# Pairing port and bounded CoreDevice tunnel ranges for your setup.
+PAIRING_PORT=49152
+PORT_FIRST=55000
+PORT_LAST=55400
+EXTRA_PORT_FIRST=61890
+EXTRA_PORT_LAST=61930
+TUNNEL_PORT_FIRST=62500
+TUNNEL_PORT_LAST=62531
+INTERFACE=en0
