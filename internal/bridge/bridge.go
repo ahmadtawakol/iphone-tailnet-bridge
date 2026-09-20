@@ -293,14 +293,33 @@ func (controller *Controller) localDevicePresent(parent context.Context, iface n
 		if !strings.EqualFold(candidate.ID, controller.Profile.ID) && !candidateHasHostname(candidate, profileHost) {
 			continue
 		}
-		for _, address := range candidate.Addresses {
-			ip := net.ParseIP(address)
-			if ip != nil && !ip.Equal(localIP) && !ip.Equal(targetIP) {
-				return true, nil
-			}
+		if candidateHasLiveLANEndpoint(candidate, localIP, targetIP, controller.Profile.PairingPort(), reachable) {
+			return true, nil
 		}
 	}
 	return false, nil
+}
+
+type reachabilityProbe func(net.IP, int, time.Duration) bool
+
+func candidateHasLiveLANEndpoint(candidate bonjour.Candidate, localIP, targetIP net.IP, fallbackPort int, probe reachabilityProbe) bool {
+	port := fallbackPort
+	for _, service := range candidate.Services {
+		if service.Type == "_remotepairing._tcp" {
+			port = service.Port
+			break
+		}
+	}
+	for _, address := range candidate.Addresses {
+		ip := net.ParseIP(address)
+		if ip == nil || ip.Equal(localIP) || ip.Equal(targetIP) {
+			continue
+		}
+		if probe(ip, port, 750*time.Millisecond) {
+			return true
+		}
+	}
+	return false
 }
 
 func candidateHasHostname(candidate bonjour.Candidate, hostname string) bool {
