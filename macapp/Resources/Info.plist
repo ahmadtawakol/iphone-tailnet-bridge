@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>CFBundleDevelopmentRegion</key><string>en</string>
+  <key>CFBundleExecutable</key><string>Tailbridge</string>
+  <key>CFBundleIdentifier</key><string>com.github.ahmadtawakol.iPhoneTailnetBridge</string>
+  <key>CFBundleInfoDictionaryVersion</key><string>6.0</string>
+  <key>CFBundleName</key><string>iPhone Tailnet Bridge</string>
+  <key>CFBundleDisplayName</key><string>iPhone Tailnet Bridge</string>
+  <key>CFBundlePackageType</key><string>APPL</string>
+  <key>CFBundleShortVersionString</key><string>1.0.0</string>
+  <key>CFBundleVersion</key><string>1</string>
+  <key>LSMinimumSystemVersion</key><string>13.0</string>
+  <key>LSUIElement</key><true/>
+  <key>NSHighResolutionCapable</key><true/>
+  <key>NSLocalNetworkUsageDescription</key><string>Find a paired iPhone and make it available to Xcode over your private tailnet.</string>
+  <key>NSBonjourServices</key>
+  <array>
+    <string>_remotepairing._tcp</string>
+    <string>_remoted._tcp</string>
+    <string>_apple-mobdev2._tcp</string>
+  </array>
+</dict>
+</plist>

@@ -1,5 +1,13 @@
 .DS_Store
+.build/
+.swiftpm/
+DerivedData/
+*.app
+*.dSYM
+*.zip
 bridge.local.conf
+Profiles/
+status.json
 *.log
 *.pid
 bridge-state/

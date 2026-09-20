@@ -1,6 +1,10 @@
-# Copy this file to bridge.local.conf and fill in values captured from YOUR
-# paired iPhone. bridge.local.conf is gitignored because it contains pairing
-# material, including authTag.
+# Legacy migration example only. New installations should use the menu-bar
+# app or `iphone-tailnet-bridge setup`, which captures these records
+# automatically and writes an owner-only JSON profile.
+#
+# bridge.local.conf remains gitignored because it contains pairing material,
+# including authTag. Import it with:
+#   iphone-tailnet-bridge import-legacy --config bridge.local.conf
 
 IPHONE_TAILNET_IP='100.x.y.z'
 IPHONE_HOSTNAME='Your-iPhone.local'
